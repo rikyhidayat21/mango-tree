@@ -124,18 +124,32 @@ class Mango {
   *   console.log(`[Year ${mangoTree.age} Report] Height = ${mangoTree.height} | Fruits harvested = ${mangoTree.harvested}`)
   * } while (mangoTree.healthStatus != false)
   */
+console.log('==============MANGO TREE REPORT==================')
 
-  let mangoTree = new MangoTree()
+let mangoTree = new MangoTree()
 do {
   mangoTree.grow();
   mangoTree.produceMangoes();
   mangoTree.harvest();
   console.log(`[Year ${mangoTree.age} Report] Height = ${mangoTree.height} | Fruits harvested = ${mangoTree.harvested}`)
 } while (mangoTree.healthStatus != false)
-
 // Release 1
-class AppleTree {}
-class Apple {}
+class AppleTree extends MangoTree{
+  constructor() {
+    super(true, 20, 20, 17, 3, Apple)
+  }
+}
+class Apple extends Mango {}
+
+console.log('==============APPLE TREE REPORT==================')
+
+let appleTree = new AppleTree()
+do {
+  appleTree.grow();
+  appleTree.produceMangoes();
+  appleTree.harvest();
+  console.log(`[Year ${appleTree.age} Report] Height = ${appleTree.height} | Fruits harvested = ${appleTree.harvested}`)
+} while (appleTree.healthStatus != false)
 
 // Release 2
 class FruitTree {}
